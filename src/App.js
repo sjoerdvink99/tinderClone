@@ -2,9 +2,9 @@ import React from "react";
 import "./App.css";
 import Header from "./Header";
 import TinderCards from "./TinderCards";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-const tijd = "0.45.00";
+const tijd = "1.50.00";
 
 function App() {
   return (
