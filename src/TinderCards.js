@@ -2,16 +2,21 @@ import React, { useEffect, useState } from "react";
 import TinderCard from "react-tinder-card";
 import "./TinderCards.css";
 import database from "./firebase";
+import { Unsubscribe } from "@material-ui/icons";
 
 export default function TinderCards() {
   const [people, setPeople] = useState([]);
 
   useEffect(() => {
-    database
+    const unsubscribe = database
       .collection("people")
       .onSnapshot((snapshot) =>
         setPeople(snapshot.docs.map((doc) => doc.data()))
       );
+
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   return (
